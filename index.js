@@ -1,3 +1,8 @@
+const textArea = document.querySelector(".text-area");
+const mensaje = document.querySelector(".texto");
+const copia = document.querySelector(".copiar");
+copia.style.display = "none"
+
 function encriptar() {
     let texto = document.getElementById("texto").value;
     let titulomensaje = document.getElementById("titulo-mensaje");
@@ -45,5 +50,18 @@ function desencriptar() {
         titulomensaje.textContent = "Ningún mensaje fue encontrado.";
         parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar.";
         swal("Ooops!","Debes ingresar algún mensaje","Warning");
+    }
+}
+function copiar(){
+    if(texto.length!=0) {
+        muneco.src ="./pictures/encriptado.png";
+        titulomensaje.textContent = "Ningún mensaje fue encontrado.";
+        parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar.";
+        swal("Ooops!","Debes ingresar algún mensaje","Warning");
+    }else {
+        texto.select();
+        navigator.clipboard.writeText(texto.value)
+        texto.value = "";
+        alert("Texto Copiado");
     }
 }
